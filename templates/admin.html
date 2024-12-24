@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% static 'img' as baseUrl %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block Start %}
+    <div class="container vh-100" style="background-color:#dee6ec">
+        <div class=" bg-light mb-5 d-flex justify-content-center">
+            <h3>Hello Admin</h3>
+        </div>
+        <div class="row">
+            <div class="col-3">
+
+                <button class="m-5 btn btn-light btn-outline-primary btn-lg">Home</button> <br>
+                <button class="m-5 btn btn-primary btn-outline-light btn-lg">Add apps</button>
+
+            </div>
+
+            <div class="col bg-light">
+                <form class="p-1" action="admin" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    <div >
+                        <label class="d-flex justify-content-center" for="file-input">
+                            <img style="width:15%" class="btn" src="{% static 'img/pic.png' %}" alt="">
+                        </label>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input class="m-4 d-flex justify-content-center text-align-center  border border-primary" type="file" id="file-input" name="app_icon">
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col d-flex justify-content-center">
+                            <input class="w-50 m-4 form-control  border border-primary" type="text" placeholder="App Name" name="app_name">
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input class="w-50 m-4 form-control " type="text" placeholder="App Link" name="app_link">
+                        </div>
+                        <div class="row">
+
+                            <div class="col d-flex justify-content-center">
+                                <select class="w-50 form-select  border border-primary m-4" name="app_category">
+                                    <option selected>App Category</option>
+                                    <option value="1">Social media</option>
+                                    <option value="2">Game</option>
+                                    <option value="3">Education</option>
+                                    <option value="3">Other</option>
+                                </select>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <select class="w-50 form-select m-4  border border-primary" name="sub_category">
+                                    <option selected>Sub Category</option>
+                                    <option value="1">Facebook</option>
+                                    <option value="2">Snapchat</option>
+                                    <option value="3">LinkedIn</option>
+                                    <option value="3">Instagram</option>
+                                    <option value="3">Twitter</option>
+                                    <option value="3">Youtube</option>
+                                    <option value="3">Tiktok</option>
+                                    <option value="3">Whatsapp</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <div class="d-flex justify-content-center">
+                        <h4 class="m-2 text-center text-primary " for="">ADD POINTS</h4>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input class="m-2 btn btn-primary border border-primary" name="points" type="number" max="100" min="0" value="100">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <input class="m-2 form-control btn btn-success btn-lg" type="submit" value="SUBMIT">
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+{% endblock  %}

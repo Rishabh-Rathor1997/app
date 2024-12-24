@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Start %}
+  
+    <div class="container">
+        <form class="col-5 mx-auto my-5 p-3 card shadow-lg border border-primary rounded " action="" method="post" style="background-color: #dee6ec;">
+        {% csrf_token %}
+        <h4 class="card-title text-center">Log in !</h4>
+        <hr class="border border-primary">
+        {% if messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {% for message in messages %}
+               <strong>{{ message }} !</strong> 
+              {% endfor %}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+         {% endif %}
+
+         <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User-Name</label>
+            <input  class="form-control border border-primary" type="text" name="username" placeholder="username" id="exampleInputEmail1"> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input class="form-control border border-primary" type="text" name="password" placeholder="password" id="exampleInputPassword1"> 
+        </div>
+        <button class="btn btn-primary" type="submit"> Login </button>
+    </form>
+    </div>
+{% endblock  %}

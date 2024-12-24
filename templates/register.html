@@ -1,0 +1,52 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+{% block Start %}
+
+  <div class="container">
+    <form class="col-5 mx-auto p-3 card shadow-lg border border-primary rounded " action="" method="post" style="background-color: #dee6ec;">
+        {% csrf_token %}
+        <h4 class="card-title text-center">Register Here!</h4>
+        <hr class="border border-primary">
+        {% if messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {% for message in messages %}
+               <strong>{{ message }} !</strong> 
+              {% endfor %}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+         {% endif %}
+
+         <div class="mb-3">
+         <label for="exampleInputEmail1" class="form-label">First Name</label>
+         <input type="text" class="form-control border border-primary" name="first_name" placeholder="First Name" id="exampleInputEmail1"> 
+         </div>
+         <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input class="form-control border border-primary" type="text" name="last_name" placeholder="Last Name" id="exampleInputEmail1"> 
+         </div>
+
+         <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User-Name</label>
+           <input  class="form-control border border-primary" type="text" name="username" placeholder="User Name" id="exampleInputEmail1"> 
+         </div>
+         <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input class="form-control border border-primary" type="email" name="email" placeholder="Email" id="exampleInputEmail1"> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input  class="form-control border border-primary" type="password" name="password1" placeholder="Password" id="exampleInputPassword1"> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input class="form-control border border-primary" type="password" name="password2" placeholder="Confirm Password" id="exampleInputPassword1"> 
+        </div>
+        
+        <button  class="btn btn-primary" type ="submit" value="submit"> Register </button>
+        
+        </form>
+  </div>
+
+       
+{% endblock  %}
